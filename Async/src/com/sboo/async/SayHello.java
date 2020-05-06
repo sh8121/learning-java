@@ -43,16 +43,22 @@ public class SayHello {
                 return "Fail";
             }
         })
-        .thenApply(s -> {
-            System.out.println(Thread.currentThread().getId());
-            try {
-                Thread.sleep(1000);
-                return s + " World";
-            }
-            catch (InterruptedException ex) {
-                return "Fail";
-            }
+        .thenCompose(s -> {
+            return CompletableFuture.supplyAsync(() -> {
+                System.out.println(Thread.currentThread().getId());
+                return s  + "World";
+            });
         });
+//        .thenApply(s -> {
+//            System.out.println(Thread.currentThread().getId());
+//            try {
+//                Thread.sleep(1000);
+//                return s + " World";
+//            }
+//            catch (InterruptedException ex) {
+//                return "Fail";
+//            }
+//        });
     }
 
     public Future<String> sayHelloAsyncWithCancellation() throws InterruptedException {
