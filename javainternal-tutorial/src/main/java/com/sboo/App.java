@@ -1,21 +1,22 @@
 package com.sboo;
 
-import java.util.List;
-
 public class App {
-    static String nickName = "sboo";
-    static String realName;
 
+    //클래스 로더 초기화 단게에서 할당.
+    static String name1 = "sboo";
+    static String name2;
     static {
-        realName = "Sang Hoon";
+        name2 = "Sang Hoon";
     }
 
-    private String foo = "bar";
-
     public static void main(String[] args) {
-        Thread.currentThread(); //Native Method(Java로 구현x)
-        System.out.println(App.class.getClassLoader());
-        System.out.println(App.class.getSuperclass());
-        System.out.println(List.class.getClassLoader());
+        ClassLoader classLoader = App.class.getClassLoader();
+        //App을 읽어드린 ClassLoader
+        System.out.println(classLoader);
+        System.out.println(classLoader.getParent());
+
+        System.out.println(classLoader.getParent().getParent());
+        //Native로 구현되어 있어서(Bootstrap ClassLoader)
+        //Java Code로 참조해서 출력X
     }
 }
