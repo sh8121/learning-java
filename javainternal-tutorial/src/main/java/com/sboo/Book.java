@@ -1,35 +1,24 @@
 package com.sboo;
 
-@MyAnnotation
 public class Book {
-    private static String B = "BOOK";
-    private static final String C = "BOOK";
 
-    @MyAnnotation
-    private String a = "a";
-    public String d = "d";
-    protected  String e = "e";
+    public static String A = "A";
 
-    public Book() {}
+    private String B = "B";
 
-    @AnotherAnnotation
-    public Book(String a, String d, String e) {
-        this.a = a;
-        this.d = d;
-        this.e = e;
+    public Book() {
     }
 
-    private void f() {
-        System.out.println("F");
+    public Book(String b) {
+        B = b;
     }
 
-    @AnotherAnnotation
-    public void g() {
-        System.out.println("g");
+    private void c() {
+        System.out.println("C");
     }
 
-    public int h() {
-        return 100;
+    public int sum(int left, int right) {
+        return left + right;
     }
 
 }

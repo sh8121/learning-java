@@ -1,35 +1,41 @@
 package com.sboo;
 
-import java.lang.reflect.Field;
-import java.lang.reflect.Modifier;
+import java.lang.reflect.*;
 import java.util.Arrays;
 
 public class App {
-    public static void main(String[] args) {
-//        Arrays.stream(Book.class.getAnnotations())
-//                .forEach(System.out::println);
+    public static void main(String[] args) throws ClassNotFoundException, NoSuchMethodException, IllegalAccessException, InvocationTargetException, InstantiationException, NoSuchFieldException {
+//        Class<?> bookClass = Class.forName("com.sboo.Book");
+//        Constructor<?> constructor = bookClass.getConstructor(null);
+//        Book book =  (Book)constructor.newInstance();
+//        System.out.println(book);
+//
+//        Constructor<?> constructor1 = bookClass.getConstructor(String.class);
+//        Book book1 = (Book)constructor1.newInstance("myBook");
+//        System.out.println(book1);
 
-        Arrays.stream(MyBook.class.getAnnotations())
-                .forEach(System.out::println);
 
-        System.out.println("========");
 
-        Arrays.stream(MyBook.class.getDeclaredAnnotations())
-                .forEach(System.out::println);
+//        Field a = Book.class.getDeclaredField("A");
+//        System.out.println(a.get(null));
+//        a.set(null, "AAAAAA");
+//        System.out.println(a.get(null));
+//
+//        Book book = new Book("myBook");
+//        Field b = Book.class.getDeclaredField("B");
+//        b.setAccessible(true);
+//        System.out.println(b.get(book));
+//        b.set(book, "BBBBBBBB");
+//        System.out.println(b.get(book));
 
-        System.out.println("========");
 
-        Arrays.stream(Book.class.getDeclaredFields())
-                .forEach(f -> {
-                    Arrays.stream(f.getAnnotations())
-                            .forEach(a -> {
-                                if(a instanceof MyAnnotation) {
-                                    MyAnnotation a1 = (MyAnnotation) a;
-                                    System.out.println(a1.value());
-                                    System.out.println(a1.name());
-                                    System.out.println(a1.number());
-                                }
-                            });
-                });
+        Book book = new Book();
+        Method c = Book.class.getDeclaredMethod("c");
+        c.setAccessible(true);
+        c.invoke(book);
+
+        Method sum = Book.class.getMethod("sum", int.class, int.class);
+        int invoke = (int)sum.invoke(book, 1, 2);
+        System.out.println(invoke);
     }
 }
