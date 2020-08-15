@@ -1,0 +1,3 @@
+com.sboo.MagicMojaProcessor
+#processor 등록
+#주석 달고 clean install -> 주석 풀고 install
