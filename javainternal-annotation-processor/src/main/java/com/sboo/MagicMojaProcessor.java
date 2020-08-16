@@ -1,5 +1,7 @@
 package com.sboo;
 
+import com.google.auto.service.AutoService;
+
 import javax.annotation.processing.AbstractProcessor;
 import javax.annotation.processing.Processor;
 import javax.annotation.processing.RoundEnvironment;
@@ -11,6 +13,7 @@ import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 import java.util.Set;
 
+@AutoService(Processor.class) 
 public class MagicMojaProcessor extends AbstractProcessor {
     @Override
     public Set<String> getSupportedAnnotationTypes() {
