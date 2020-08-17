@@ -8,13 +8,22 @@ import java.util.Date;
  */
 public class App 
 {
+    static int nNum = 0;
+
     public static void main( String[] args )
     {
-        Database database;
-        database = Database.getInstance("첫번째 Database");
-        System.out.println("This is the " + database.getName());
+        Runnable task = () -> {
+            try {
+                nNum++;
+                Database database = Database.getInstance(nNum + "번째 Database");
+                System.out.println("This is the " + database.getName());
+            }catch (Exception e) {
+            }
+        };
+        for(int i = 0; i < 10; i++) {
+            Thread t = new Thread(task);
+            t.start();
+        }
 
-        database = Database.getInstance("두번째 Database");
-        System.out.println("This is the " + database.getName());
     }
 }
