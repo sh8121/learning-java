@@ -1,29 +1,43 @@
 package com.sboo;
 
-import java.util.Date;
-
 /**
  * Hello world!
  *
  */
 public class App 
 {
-    static int nNum = 0;
-
     public static void main( String[] args )
     {
-        Runnable task = () -> {
-            try {
-                nNum++;
-                Database database = Database.getInstance(nNum + "번째 Database");
-                System.out.println("This is the " + database.getName());
-            }catch (Exception e) {
-            }
-        };
-        for(int i = 0; i < 10; i++) {
-            Thread t = new Thread(task);
+//        LogWriter logger;
+//
+//        logger = LogWriter.getInstance();
+//        logger.log("홍길동");
+//
+//        logger = LogWriter.getInstance();
+//        logger.log("전우치");
+
+        for(int i = 0; i < 50; i++) {
+            Thread t = new ThreadSub(i);
             t.start();
         }
+    }
+}
 
+class ThreadSub extends Thread {
+    int num;
+
+    public ThreadSub(int num) {
+        this.num = num;
+    }
+
+    @Override
+    public void run() {
+        LogWriter logger = LogWriter.getInstance();
+        if(num < 10){
+            logger.log("*** 0" + num + " ***");
+        }
+        else {
+            logger.log("*** " + num + " ***");
+        }
     }
 }
