@@ -8,11 +8,28 @@ public class App
 {
     public static void main( String[] args )
     {
-        String str1 = new String("홍길동");
-        String str2 = new String("홍길동");
-        String str3 = "홍길동";
-        String str4 = "홍길동";
+        MyData md1 = new MyData();
+        md1.xpos = 10;
+        md1.ypos = 11;
+        md1.name = "홍길동";
 
-        System.out.println("Flyweight Pattern");
+        MyData md2 = new MyData();
+        md2 = md1;
+        //객체 Pool에서 같은 객체 공유.
+        //얕은 복사도 Flyweight Pattern의 좋은 예.
+
+        MyData md3 = new MyData();
+        md3.xpos = 20;
+        md3.ypos = 21;
+        md3.name = "손오공";
+
+        md2.name = "전우치";
+        md2.xpos = 5;
     }
+}
+
+class MyData {
+    int xpos;
+    int ypos;
+    String name;
 }
