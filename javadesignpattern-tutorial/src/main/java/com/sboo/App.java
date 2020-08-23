@@ -1,5 +1,8 @@
 package com.sboo;
 
+import java.time.LocalDate;
+import java.time.Month;
+
 /**
  * Hello world!
  *
@@ -8,20 +11,23 @@ public class App
 {
     public static void main( String[] args )
     {
-        Person p1 = createPersonForTesting();
-        System.out.println(p1.getFirstName());
-    }
+        //다양한 생성자를 만들 필요성이 없어짐.
+        Person p1 = Person.builder()
+                .firstName("FirstName")
+                .lastName("LastName")
+                .addressOne("강동구 성내동")
+                .addressTwo("AddressTwo")
+                .birthDate(LocalDate.of(1988, Month.JANUARY, 21))
+                .sex("Man")
+                .driverLicense(true)
+                .married(true)
+                .build();
 
-    public static Person createPersonForTesting() {
-        Person person = new Person();
-        person.setFirstName("FirstName");
-        person.setLastName("LastName");
-        person.setAddressOne("Address1");
-        person.setAddressTwo("Address2");
-        person.setSex("Man");
-        person.setDriverLicense(false);
-        person.setMarried(true);
-        //멤버변수가 많으면 변수에 값 세팅이 어려워진다.
-        return person;
+        Person p2 = Person.builder()
+                .firstName("FirstName")
+                .lastName("LastName")
+                .build();
+
+        System.out.println(p1.getAddressOne());
     }
 }

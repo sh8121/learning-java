@@ -12,24 +12,6 @@ public class Person {
     private boolean driverLicense;
     private boolean married;
 
-    //초기화를 원하는 필드가 다양할 수 있을 때
-    //그 모든 요구사항을 생성자로 커버하기에는 무리가 있다.
-    public Person(String firstName, String lastName) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-    }
-
-    public Person(String firstName, String lastName, LocalDate birthDate, String addressOne, String addressTwo, String sex, boolean driverLicense, boolean married) {
-        this.firstName = firstName;
-        this.lastName = lastName;
-        this.birthDate = birthDate;
-        this.addressOne = addressOne;
-        this.addressTwo = addressTwo;
-        this.sex = sex;
-        this.driverLicense = driverLicense;
-        this.married = married;
-    }
-
     public String getFirstName() {
         return firstName;
     }
@@ -92,5 +74,9 @@ public class Person {
 
     public void setMarried(boolean married) {
         this.married = married;
+    }
+
+    public static PersonBuilder builder() {
+        return new PersonBuilder();
     }
 }
