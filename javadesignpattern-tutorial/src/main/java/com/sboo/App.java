@@ -11,23 +11,18 @@ public class App
 {
     public static void main( String[] args )
     {
-        //다양한 생성자를 만들 필요성이 없어짐.
-        Person p1 = Person.builder()
-                .firstName("FirstName")
-                .lastName("LastName")
-                .addressOne("강동구 성내동")
-                .addressTwo("AddressTwo")
-                .birthDate(LocalDate.of(1988, Month.JANUARY, 21))
-                .sex("Man")
-                .driverLicense(true)
-                .married(true)
-                .build();
+        PlayController controller = new PlayController();
+        MyClassA classA = new MyClassA(controller);
+        MyClassB classB = new MyClassB(controller);
 
-        Person p2 = Person.builder()
-                .firstName("FirstName")
-                .lastName("LastName")
-                .build();
+        System.out.println("--------모든 클래스 일시정지-------");
+        controller.setFlag(false);
 
-        System.out.println(p1.getAddressOne());
+        System.out.println();
+
+        System.out.println("--------모든 클래스 다시시작-------");
+        controller.setFlag(true);
+
+        System.out.println();
     }
 }
