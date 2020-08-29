@@ -20,9 +20,13 @@ public class PlayController implements Publisher {
 
     @Override
     public void notifyObservers() {
-        for(var observer : observers) {
-            observer.update(play);
+        for(int i = 0; i < observers.size(); i++){
+            observers.get(i).update(play);
         }
+//        for(var observer : observers) {
+//            observer.update(play);
+//        }
+        //ConcurrentModificationException
     }
 
     public void setFlag(boolean play) {

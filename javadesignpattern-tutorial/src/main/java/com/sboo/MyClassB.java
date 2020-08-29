@@ -1,7 +1,13 @@
 package com.sboo;
 
 public class MyClassB implements Observer {
+    private Publisher observable;
     private boolean play;
+
+    public MyClassB(Publisher o) {
+        this.observable = o;
+        observable.addObserver(this);
+    }
 
     @Override
     public void update(boolean play) {
@@ -15,6 +21,7 @@ public class MyClassB implements Observer {
         }
         else {
             System.out.println("MyClassB: 동작을 정지합니다.");
+            observable.deleteObserver(this);
         }
     }
 }

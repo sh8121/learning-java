@@ -11,23 +11,17 @@ public class App
 {
     public static void main( String[] args )
     {
-        PlayController pager = new PlayController();
-        Observer ob1 = new MyClassA();
-        Observer ob2 = new MyClassB();
+        PlayController controller = new PlayController();
+        Observer ob1 = new MyClassA(controller);
+        Observer ob2 = new MyClassB(controller);
+        //Main Class 와 Controller/Observer Class의 관계를 느슨하게 만든다.
 
-        // 구독자(옵저버) 등록
-        pager.addObserver(ob1);
-        pager.addObserver(ob2);
+        System.out.println("------모든 클래스 일시정지-----");
+        controller.setFlag(false);
 
-        //메시지 등록
-        pager.setFlag(false);
+        System.out.println();
 
-        //구독 해지
-        pager.deleteObserver(ob2);
-
-        System.out.println("-----------------");
-
-        //메시지 등록
-        pager.setFlag(true);
+        System.out.println("------모든 클래스 다시시작-----");
+        controller.setFlag(true);
     }
 }
