@@ -11,17 +11,24 @@ public class App
 {
     public static void main( String[] args )
     {
-        PlayController controller = new PlayController();
-        Observer ob1 = new MyClassA(controller);
-        Observer ob2 = new MyClassB(controller);
-        //Main Class 와 Controller/Observer Class의 관계를 느슨하게 만든다.
+        APlayer player1 = new APlayerImpl();
+        player1.play("aaa.mp3");
 
-        System.out.println("------모든 클래스 일시정지-----");
-        controller.setFlag(false);
+        //계약기간 만료로 APlayerImpl 를 사용할 수 없게됨.
+        //BPlayer : 새로 도입된 방식(잘 동작할 것이다.)
+        BPlayer player2 = new BPlayerImpl();
+        player2.playFile("bbb.mp3");
 
-        System.out.println();
+        //원하는 것
+        //APlayer obj = (어댑터) = new BPlayerImpl();
+        //기존의 잘 동작하던 코드와 새로 도입된 코드를
+        //변경 없이 사용하고 싶은 것이다.
+        //어댑터 적용 후 에러가 난다면 어댑터 부분만 보면 될 것이다.
+        player1 = new BToAAdapter(new BPlayerImpl());
+        player1.play("ccc.mp3");
 
-        System.out.println("------모든 클래스 다시시작-----");
-        controller.setFlag(true);
+        // 현재 모든 코드가 APlayer 인터페이스에 맞춰서 코딩되어 있다.
+        // 그러므로 여기서 APlayer에 대입되는 객체만 수정해주면
+        // APlayer 인터페이스가 사용되는 부분에서는 수정할 필요가 없다.
     }
 }
