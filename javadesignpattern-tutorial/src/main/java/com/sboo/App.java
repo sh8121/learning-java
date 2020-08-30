@@ -24,7 +24,7 @@ public class App
         //기존의 잘 동작하던 코드와 새로 도입된 코드를
         //변경 없이 사용하고 싶은 것이다.
         //어댑터 적용 후 에러가 난다면 어댑터 부분만 보면 될 것이다.
-        player1 = new BToAAdapter(new BPlayerImpl());
+        player1 = new BToAAdapter();
         player1.play("ccc.mp3");
 
         // 현재 모든 코드가 APlayer 인터페이스에 맞춰서 코딩되어 있다.

@@ -1,6 +1,6 @@
 package com.sboo;
 
-public class BPlayerImpl implements BPlayer {
+public class BPlayerImpl extends BPlayer {
 
     @Override
     public void playFile(String fileName) {

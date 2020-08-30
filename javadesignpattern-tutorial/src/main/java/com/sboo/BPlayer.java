@@ -1,6 +1,6 @@
 package com.sboo;
 
-public interface BPlayer {
-    void playFile(String fileName);
-    void stopFile();
+public abstract class BPlayer {
+    public abstract void playFile(String fileName);
+    public abstract void stopFile();
 }

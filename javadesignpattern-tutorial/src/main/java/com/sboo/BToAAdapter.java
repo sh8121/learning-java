@@ -1,17 +1,13 @@
 package com.sboo;
 
-//object adapter implementation
-public class BToAAdapter implements APlayer {
-    private BPlayer media;
-
-    public BToAAdapter(BPlayer media) {
-        this.media = media;
-    }
+// class adapter implementation
+// extends와 implements를 동시에 사용해 다중 상속을 흉내내었다.
+public class BToAAdapter extends BPlayerImpl implements APlayer {
 
     @Override
     public void play(String fileName) {
-        System.out.println("Using Adapter : ");
-        media.playFile(fileName);
+        System.out.print("Using Adapter : ");
+        playFile(fileName);
     }
 
     @Override
