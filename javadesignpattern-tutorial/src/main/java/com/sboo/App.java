@@ -1,7 +1,11 @@
 package com.sboo;
 
-import java.time.LocalDate;
-import java.time.Month;
+import com.sboo.base.IceCream;
+import com.sboo.base.IceCreamCake;
+import com.sboo.base.IceCreamCone;
+import com.sboo.base.IcePop;
+import com.sboo.decorator.Melon;
+import com.sboo.decorator.Strawberry;
 
 /**
  * Hello world!
@@ -11,19 +15,15 @@ public class App
 {
     public static void main( String[] args )
     {
-        Computer computer = new Computer();
-        Light light = new Light();
-        Radio radio = new Radio();
+        IceCream icecream1 = new IceCreamCone();
+        System.out.println(icecream1.getDescription() + " cost : " + icecream1.price());
 
-        // 이전 사용 방식
-        // 집에서 나갈 때 동작
-        computer.turnOff();
-        light.turnOff();
-        radio.turnOff();
+        // 아래와 같은 식으로 기본에 첨가물들을 Wrapping해서 가격과 설명을 추가할 수 있다.
+        IceCream icecream2 = new IceCreamCake();
+        icecream2 = new Strawberry(icecream2);
+        System.out.println(icecream2.getDescription() + " cost : " + icecream2.price());
 
-        // 파사드 패턴 적용 후 사용 방식
-        // 집에 들어올 때 동작
-        HomeFacade home = new HomeFacade(computer, light, radio);
-        home.homeIn();
+        IceCream icecream3 = new Melon(new Strawberry(new IcePop()));
+        System.out.println(icecream3.getDescription() + " cost : " + icecream3.price());
     }
 }
