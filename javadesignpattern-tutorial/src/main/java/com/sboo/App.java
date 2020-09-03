@@ -1,25 +1,19 @@
 package com.sboo;
 
-import com.sboo.base.AmericanStudent;
-import com.sboo.base.Student;
-import com.sboo.decorator.Art;
-import com.sboo.decorator.Science;
-
-/**
- * Hello world!
- *
- */
+// 구현의 추가는 계속할 수 있다.
+// RobotModel1, RobotModel2, ...
 public class App 
 {
     public static void main( String[] args )
     {
-        Student g1 = new AmericanStudent();
-        System.out.println(g1.getDescription());
+        IRobot robot1 = new RobotModel1();
+        robot1.powerOn();
+        robot1.powerOff();
 
-        Science g2 = new Science(g1);
-        System.out.println(g2.getDescription());
+        System.out.println("--------------------");
 
-        Art g3 = new Art(g2);
-        System.out.println(g3.getDescription());
+        IRobot robot2 = new RobotModel2();
+        robot2.powerOn();
+        robot2.powerOff();
     }
 }
