@@ -11,9 +11,4 @@ public class RobotModel1 implements IRobot {
     public void powerOff() {
         System.out.println("type1 : power off");
     }
-
-    // 행동(요리) 추가
-    public void doCook() {
-        System.out.println("요리를 합니다.");
-    }
 }

@@ -1,20 +1,22 @@
 package com.sboo;
 
-// 기능을 추가하기 위해 이미 구현된 모든 클래스를 수정했다.
+// 기능의 추가 : 행동(요리) 추가
 public class App 
 {
     public static void main( String[] args )
     {
-        IRobot robot1 = new RobotModel1();
-        robot1.powerOn();
-        robot1.powerOff();
-        robot1.doCook();
+        IRobot robot = new RobotModel1();
+        Cook work = new Cook(robot);
+        work.powerOn();
+        work.doCook();
+        work.powerOff();
 
         System.out.println("--------------------");
 
-        IRobot robot2 = new RobotModel2();
-        robot2.powerOn();
-        robot2.powerOff();
-        robot2.doCook();
+        robot = new RobotModel2();
+        work = new Cook(robot);
+        work.powerOn();
+        work.doCook();
+        work.powerOff();
     }
 }
