@@ -1,13 +1,13 @@
 package org.example.generic;
 
-public class RemoteController {
-    private Object connectedDevice;
+public class RemoteController<Device> {
+    private Device connectedDevice;
 
-    public RemoteController(Object connectedDevice) {
+    public RemoteController(Device connectedDevice) {
         this.connectedDevice = connectedDevice;
     }
 
-    public Object getConnectedDevice() {
+    public Device getConnectedDevice() {
         return connectedDevice;
     }
 }

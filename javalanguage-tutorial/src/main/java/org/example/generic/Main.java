@@ -4,13 +4,10 @@ public class Main {
     public static void main(String[] args) {
         Tv tv1 = new Tv("티비1");
         Radio radio1 = new Radio("라디오1");
-        RemoteController tvRemoteController1 = new RemoteController(tv1);
-        RemoteController radioRemoteController1 = new RemoteController(radio1);
+        RemoteController<Tv> tvRemoteController1 = new RemoteController<Tv>(tv1);
+        RemoteController<Radio> radioRemoteController1 = new RemoteController<Radio>(radio1);
 
-        Tv connectedTv = (Tv)tvRemoteController1.getConnectedDevice();
-        System.out.println(connectedTv.getTitle());
-
-        Radio connectedRadio = (Radio)radioRemoteController1.getConnectedDevice();
-        System.out.println(connectedRadio.getName());
+        System.out.println(tvRemoteController1.getClass());
+        System.out.println(radioRemoteController1.getClass());
     }
 }
