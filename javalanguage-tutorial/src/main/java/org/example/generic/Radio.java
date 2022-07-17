@@ -1,6 +1,6 @@
 package org.example.generic;
 
-public class Radio {
+public class Radio extends Electronics {
     private String name;
 
     public Radio(String name) {

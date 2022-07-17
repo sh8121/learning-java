@@ -1,6 +1,6 @@
 package org.example.generic;
 
-public class Tv {
+public class Tv extends Electronics {
     private String title;
 
     public Tv(String title) {
