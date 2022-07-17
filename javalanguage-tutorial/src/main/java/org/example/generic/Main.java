@@ -1,14 +1,20 @@
 package org.example.generic;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Main {
     public static void main(String[] args) {
-//        Tv tv = new Tv("티비");
-//        Radio radio = new Radio("라디오");
-//
-//        RemoteController<? extends Electronics> tvRemoteController = new RemoteController<Tv>(tv);
-//        RemoteController<? extends Electronics> radioRemoteController = new RemoteController<Radio>(radio);
+        List<Tv> tvs = new ArrayList<>();
+        tvs.add(new Tv("티비1"));
+        tvs.add(new Tv("티비2"));
+        tvs.add(new Tv("티비3"));
 
-        Electronics electronics = new Electronics();
-        RemoteController<? super Tv> remoteController = new RemoteController<Electronics>(electronics);
+        List<? extends Electronics> electronics = tvs;
+        for (Electronics e : electronics) {
+            System.out.println(e);
+        }
+
+        //electronics.add(new Tv("티비4")); compile error
     }
 }
