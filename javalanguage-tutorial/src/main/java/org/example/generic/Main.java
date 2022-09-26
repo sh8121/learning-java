@@ -12,11 +12,11 @@ public class Main {
         radioList.add(new Radio("제조사3", "라디오1"));
         radioList.add(new Radio("제조사4", "라디오2"));
 
-//        printManufacturer(tvList); // Compile Error
-//        printManufacturer(radioList); // Compile Error
+        printManufacturer(tvList);
+        printManufacturer(radioList);
     }
 
-    private static void printManufacturer(List<Electronics> electronicsList) {
+    private static void printManufacturer(List<? extends Electronics> electronicsList) {
         for (Electronics electronics : electronicsList) {
             System.out.println("electronics.manufacturer = " + electronics.getManufacturer());
         }
