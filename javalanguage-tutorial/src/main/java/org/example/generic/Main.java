@@ -1,18 +1,19 @@
 package org.example.generic;
 
-import java.sql.Array;
 import java.util.ArrayList;
 import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        ElectronicsList<Electronics> electronicsList = new ElectronicsList<>();
-        electronicsList.add(new Tv("제조사1", "티비1"));
-        electronicsList.add(new Tv("제조사2", "티비2"));
-        electronicsList.add(new Radio("제조사3", "라디오1"));
-        electronicsList.add(new Radio("제조사4", "라디오2"));
+        List<Tv> tvList = new ArrayList<>();
+        List<Radio> radioList = new ArrayList<>();
+        tvList.add(new Tv("제조사1", "티비1"));
+        tvList.add(new Tv("제조사2", "티비2"));
+        radioList.add(new Radio("제조사3", "라디오1"));
+        radioList.add(new Radio("제조사4", "라디오2"));
 
-        printManufacturer(electronicsList);
+//        printManufacturer(tvList); // Compile Error
+//        printManufacturer(radioList); // Compile Error
     }
 
     private static void printManufacturer(List<Electronics> electronicsList) {
