@@ -14,8 +14,8 @@ public class Main {
         store.save(tvList, List<Tv>.class);
         store.save(radioList, List<Radio>.class);
 
-        store.find(List<Tv>.class);
-        store.find(List<Radio>.class);
+        List<Tv> findTvList = store.find(List<Tv>.class);
+        List<Radio> findRadioList = store.find(List<Radio>.class);
     }
 
     private static void printManufacturer(List<? extends Electronics> electronicsList) {
