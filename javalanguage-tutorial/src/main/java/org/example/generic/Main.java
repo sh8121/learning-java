@@ -7,8 +7,8 @@ import java.util.Map;
 
 public class Main {
     public static void main(String[] args) {
-        List<Tv> tvList = new ArrayList<>(){{add(new Tv("제조사2", "티비"));}};
-        List<Radio> radioList = new ArrayList<>(){{add(new Radio("제조사3", "라디오"));}};
+        List<Tv> tvList = new ArrayList<Tv>(){{add(new Tv("제조사1", "티비"));}};
+        List<Radio> radioList = new ArrayList<Radio>(){{add(new Radio("제조사2", "라디오"));}};
 
         ElectronicsStore store = new ElectronicsStore();
         store.save(tvList, List<Tv>.class);
