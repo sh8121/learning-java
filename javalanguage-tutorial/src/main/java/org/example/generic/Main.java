@@ -11,11 +11,16 @@ public class Main {
         List<Radio> radioList = new ArrayList<Radio>(){{add(new Radio("제조사2", "라디오"));}};
 
         ElectronicsStore store = new ElectronicsStore();
-        store.save(tvList, List<Tv>.class);
-        store.save(radioList, List<Radio>.class);
+        store.save(tvList, List.class);
+        store.save(radioList, List.class);
 
-        List<Tv> findTvList = store.find(List<Tv>.class);
-        List<Radio> findRadioList = store.find(List<Radio>.class);
+        List<Tv> findTvList = store.find(List.class);
+        List<Radio> findRadioList = store.find(List.class);
+
+        System.out.println(findTvList.equals(findRadioList));
+        for (Tv tv : findTvList) {
+            System.out.println("tv = " + tv);
+        }
     }
 
     private static void printManufacturer(List<? extends Electronics> electronicsList) {
